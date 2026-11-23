@@ -1,1 +1,423 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Account | Kerjiva Singapore</title>
+  <meta name="description" content="Create your Kerjiva Singapore account as a job seeker or employer.">
+
+  <style>
+    :root {
+      --navy: #10243d;
+      --navy-light: #193b5d;
+      --red: #e33b4b;
+      --white: #ffffff;
+      --light: #f4f7fb;
+      --text: #26364a;
+      --muted: #718096;
+      --border: #e2e8f0;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--light);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .navbar {
+      background: white;
+      border-bottom: 1px solid var(--border);
+      padding: 17px 5%;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--navy);
+      font-size: 24px;
+      font-weight: 800;
+    }
+
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+      background: var(--navy);
+      color: white;
+      border-radius: 9px;
+      display: grid;
+      place-items: center;
+    }
+
+    .brand small {
+      display: block;
+      font-size: 10px;
+      letter-spacing: 2px;
+      color: var(--red);
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 45px 18px;
+    }
+
+    .register-card {
+      width: 100%;
+      max-width: 510px;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 36px;
+      box-shadow: 0 12px 35px rgba(16,36,61,.07);
+    }
+
+    .heading {
+      text-align: center;
+      margin-bottom: 27px;
+    }
+
+    .heading .flag {
+      font-size: 30px;
+      margin-bottom: 10px;
+    }
+
+    .heading h1 {
+      color: var(--navy);
+      font-size: 28px;
+      margin-bottom: 8px;
+    }
+
+    .heading p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .role-label {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 12px;
+    }
+
+    .role-options {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 23px;
+    }
+
+    .role-option {
+      position: relative;
+    }
+
+    .role-option input {
+      position: absolute;
+      opacity: 0;
+    }
+
+    .role-option label {
+      display: block;
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      padding: 17px 12px;
+      text-align: center;
+      cursor: pointer;
+      transition: .2s;
+    }
+
+    .role-option label strong {
+      display: block;
+      color: var(--navy);
+      margin-top: 5px;
+      font-size: 14px;
+    }
+
+    .role-option label span {
+      font-size: 25px;
+    }
+
+    .role-option input:checked + label {
+      border: 2px solid var(--red);
+      background: #fff5f5;
+    }
+
+    .field {
+      margin-bottom: 17px;
+    }
+
+    .field label {
+      display: block;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 7px;
+    }
+
+    .field input {
+      width: 100%;
+      padding: 13px 14px;
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      font-size: 14px;
+      outline: none;
+    }
+
+    .field input:focus {
+      border-color: var(--red);
+    }
+
+    .password-note {
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 6px;
+    }
+
+    .terms {
+      display: flex;
+      align-items: flex-start;
+      gap: 9px;
+      font-size: 12px;
+      color: var(--muted);
+      margin: 20px 0;
+    }
+
+    .terms input {
+      margin-top: 3px;
+    }
+
+    .terms a {
+      color: var(--red);
+      font-weight: 700;
+    }
+
+    .submit-btn {
+      width: 100%;
+      padding: 14px;
+      background: var(--red);
+      color: white;
+      border: none;
+      border-radius: 7px;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .submit-btn:hover {
+      background: #c92d3d;
+    }
+
+    .login-link {
+      text-align: center;
+      margin-top: 22px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .login-link a {
+      color: var(--red);
+      font-weight: 700;
+    }
+
+    .back-home {
+      text-align: center;
+      margin-top: 19px;
+      font-size: 13px;
+      color: var(--navy);
+      font-weight: 700;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    @media (max-width: 480px) {
+      .register-card {
+        padding: 25px 19px;
+      }
+
+      .heading h1 {
+        font-size: 24px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="navbar">
+    <a href="index.html" class="brand">
+      <span class="brand-mark">K</span>
+      <span>
+        Kerjiva
+        <small>SINGAPORE</small>
+      </span>
+    </a>
+  </header>
+
+  <main>
+    <div class="register-card">
+
+      <div class="heading">
+        <div class="flag">🇸🇬</div>
+        <h1>Create Your Account</h1>
+        <p>Join Kerjiva Singapore and take your next career step.</p>
+      </div>
+
+      <form id="registerForm">
+
+        <div class="role-label">I want to register as:</div>
+
+        <div class="role-options">
+
+          <div class="role-option">
+            <input
+              type="radio"
+              id="jobseeker"
+              name="accountType"
+              value="jobseeker"
+              checked
+            >
+            <label for="jobseeker">
+              <span>👤</span>
+              <strong>Job Seeker</strong>
+            </label>
+          </div>
+
+          <div class="role-option">
+            <input
+              type="radio"
+              id="company"
+              name="accountType"
+              value="company"
+            >
+            <label for="company">
+              <span>🏢</span>
+              <strong>Company</strong>
+            </label>
+          </div>
+
+        </div>
+
+        <div class="field">
+          <label for="fullName">Full Name / Contact Person</label>
+          <input
+            type="text"
+            id="fullName"
+            name="fullName"
+            placeholder="Enter your full name"
+            autocomplete="name"
+            required
+          >
+        </div>
+
+        <div class="field">
+          <label for="email">Email Address</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Enter your email address"
+            autocomplete="email"
+            required
+          >
+        </div>
+
+        <div class="field">
+          <label for="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Create a password"
+            autocomplete="new-password"
+            minlength="8"
+            required
+          >
+          <p class="password-note">Use at least 8 characters.</p>
+        </div>
+
+        <div class="field">
+          <label for="confirmPassword">Confirm Password</label>
+          <input
+            type="password"
+            id="confirmPassword"
+            name="confirmPassword"
+            placeholder="Enter your password again"
+            autocomplete="new-password"
+            minlength="8"
+            required
+          >
+        </div>
+
+        <label class="terms">
+          <input type="checkbox" id="agreeTerms" required>
+          <span>
+            I agree to the
+            <a href="terms.html" target="_blank">Terms & Conditions</a>
+            and
+            <a href="privacy.html" target="_blank">Privacy Policy</a>.
+          </span>
+        </label>
+
+        <button type="submit" class="submit-btn">
+          Create Account
+        </button>
+
+      </form>
+
+      <div class="login-link">
+        Already have an account?
+        <a href="login.html">Log In</a>
+      </div>
+
+      <div class="back-home">
+        <a href="index.html">← Back to Home</a>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    © 2026 Kerjiva Singapore. All rights reserved.
+  </footer>
+
+  <script>
+    document.getElementById("registerForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const password = document.getElementById("password").value;
+      const confirmPassword = document.getElementById("confirmPassword").value;
+
+      if (password !== confirmPassword) {
+        alert("Passwords do not match.");
+        return;
+      }
+
+      alert("Registration system is not connected yet. Please try again later.");
+    });
+  </script>
+
+</body>
+</html>
+
