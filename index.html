@@ -1,1 +1,858 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Kerjiva Singapore | Find Your Next Career</title>
+  <meta name="description" content="Discover career opportunities in Singapore with Kerjiva Singapore. Connect with employers and find your next job.">
+  <meta name="theme-color" content="#10243d">
+
+  <style>
+    :root {
+      --navy: #10243d;
+      --navy-light: #193653;
+      --red: #e33b4b;
+      --white: #ffffff;
+      --light: #f4f7fb;
+      --text: #26364a;
+      --muted: #718096;
+      --border: #e5eaf0;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    button, input, select {
+      font: inherit;
+    }
+
+    .container {
+      width: min(1120px, 90%);
+      margin: auto;
+    }
+
+    /* NAVIGATION */
+
+    .navbar {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-inner {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--navy);
+      font-size: 25px;
+      font-weight: 800;
+    }
+
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      background: var(--navy);
+      color: white;
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+    }
+
+    .brand small {
+      display: block;
+      color: var(--red);
+      font-size: 10px;
+      letter-spacing: 2px;
+      line-height: 1;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .nav-links a:hover {
+      color: var(--red);
+    }
+
+    .nav-actions {
+      display: flex;
+      gap: 10px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 11px 20px;
+      border-radius: 7px;
+      font-weight: 700;
+      font-size: 14px;
+      cursor: pointer;
+      border: 1px solid transparent;
+      text-align: center;
+    }
+
+    .btn-outline {
+      border-color: var(--navy);
+      color: var(--navy);
+      background: white;
+    }
+
+    .btn-primary {
+      background: var(--red);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: #c92d3d;
+    }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: 0;
+      font-size: 27px;
+      color: var(--navy);
+      cursor: pointer;
+    }
+
+    /* HERO */
+
+    .hero {
+      background: linear-gradient(120deg, #10243d, #193b5d);
+      color: white;
+      padding: 90px 0 85px;
+      overflow: hidden;
+    }
+
+    .hero-content {
+      max-width: 760px;
+    }
+
+    .hero-label {
+      display: inline-block;
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.2);
+      border-radius: 30px;
+      padding: 7px 15px;
+      font-size: 13px;
+      margin-bottom: 22px;
+    }
+
+    .hero h1 {
+      font-size: clamp(38px, 6vw, 62px);
+      line-height: 1.12;
+      margin-bottom: 22px;
+      letter-spacing: -1.5px;
+    }
+
+    .hero h1 span {
+      color: #ff6976;
+    }
+
+    .hero p {
+      color: #d7e1ed;
+      font-size: 17px;
+      max-width: 600px;
+      margin-bottom: 30px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .hero .btn {
+      padding: 14px 24px;
+    }
+
+    .btn-white {
+      background: white;
+      color: var(--navy);
+    }
+
+    /* SEARCH */
+
+    .search-section {
+      margin-top: -35px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .search-box {
+      background: white;
+      padding: 24px;
+      border-radius: 12px;
+      box-shadow: 0 12px 35px rgba(16,36,61,.12);
+      display: grid;
+      grid-template-columns: 1fr 1fr auto;
+      gap: 15px;
+      align-items: end;
+    }
+
+    .search-field label {
+      display: block;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 7px;
+      color: var(--navy);
+    }
+
+    .search-field input,
+    .search-field select {
+      width: 100%;
+      padding: 13px;
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      outline: none;
+      background: white;
+      color: var(--text);
+    }
+
+    .search-field input:focus,
+    .search-field select:focus {
+      border-color: var(--red);
+    }
+
+    .search-box button {
+      min-height: 46px;
+    }
+
+    /* GENERAL SECTIONS */
+
+    .section {
+      padding: 80px 0;
+    }
+
+    .section-heading {
+      text-align: center;
+      margin-bottom: 42px;
+    }
+
+    .section-heading .eyebrow {
+      color: var(--red);
+      text-transform: uppercase;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 2px;
+    }
+
+    .section-heading h2 {
+      color: var(--navy);
+      font-size: 34px;
+      margin: 8px 0;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      max-width: 600px;
+      margin: auto;
+    }
+
+    /* CATEGORIES */
+
+    .categories {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .category-card {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 25px 20px;
+      transition: .2s;
+      background: white;
+    }
+
+    .category-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--red);
+      box-shadow: 0 10px 25px rgba(16,36,61,.07);
+    }
+
+    .category-icon {
+      font-size: 29px;
+      margin-bottom: 12px;
+    }
+
+    .category-card h3 {
+      color: var(--navy);
+      font-size: 16px;
+      margin-bottom: 5px;
+    }
+
+    .category-card p {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    /* WHY KERJIVA */
+
+    .why-section {
+      background: var(--light);
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .feature-card {
+      background: white;
+      border-radius: 10px;
+      padding: 28px;
+      border: 1px solid var(--border);
+    }
+
+    .feature-icon {
+      width: 48px;
+      height: 48px;
+      background: #fff0f1;
+      color: var(--red);
+      border-radius: 10px;
+      display: grid;
+      place-items: center;
+      font-size: 23px;
+      margin-bottom: 17px;
+    }
+
+    .feature-card h3 {
+      color: var(--navy);
+      margin-bottom: 9px;
+      font-size: 18px;
+    }
+
+    .feature-card p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* EMPLOYER BANNER */
+
+    .employer-section {
+      padding: 70px 0;
+    }
+
+    .employer-banner {
+      background: var(--navy);
+      color: white;
+      padding: 45px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+    }
+
+    .employer-banner h2 {
+      font-size: 30px;
+      margin-bottom: 8px;
+    }
+
+    .employer-banner p {
+      color: #d3deea;
+    }
+
+    /* FOOTER */
+
+    footer {
+      background: #0b192b;
+      color: white;
+      padding: 55px 0 22px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-brand {
+      font-size: 25px;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    .footer-grid p {
+      color: #aebdce;
+      font-size: 14px;
+      max-width: 350px;
+    }
+
+    .footer-grid h3 {
+      font-size: 15px;
+      margin-bottom: 15px;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+      color: #aebdce;
+      font-size: 14px;
+    }
+
+    .footer-links a:hover {
+      color: white;
+    }
+
+    .copyright {
+      border-top: 1px solid #26384c;
+      padding-top: 20px;
+      color: #aebdce;
+      font-size: 12px;
+      text-align: center;
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 900px) {
+      .nav-links {
+        gap: 14px;
+      }
+
+      .categories {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .features {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .nav-inner {
+        min-height: 66px;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-links,
+      .nav-actions {
+        display: none;
+      }
+
+      .nav-links.active {
+        display: flex;
+        position: absolute;
+        top: 66px;
+        left: 0;
+        right: 0;
+        background: white;
+        padding: 20px 5%;
+        flex-direction: column;
+        align-items: flex-start;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .nav-actions.active {
+        display: flex;
+        position: absolute;
+        top: 350px;
+        left: 0;
+        right: 0;
+        background: white;
+        padding: 0 5% 20px;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .hero {
+        padding: 65px 0 75px;
+      }
+
+      .hero h1 {
+        font-size: 40px;
+      }
+
+      .search-box {
+        grid-template-columns: 1fr;
+      }
+
+      .section {
+        padding: 60px 0;
+      }
+
+      .section-heading h2 {
+        font-size: 28px;
+      }
+
+      .employer-banner {
+        padding: 30px 24px;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .categories {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+      }
+
+      .category-card {
+        padding: 18px 13px;
+      }
+
+      .brand {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+  <header class="navbar">
+    <div class="container nav-inner">
+
+      <a href="index.html" class="brand">
+        <span class="brand-mark">K</span>
+        <span>
+          Kerjiva
+          <small>SINGAPORE</small>
+        </span>
+      </a>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
+        ☰
+      </button>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="jobs.html">Find Jobs</a>
+        <a href="#categories">Categories</a>
+        <a href="#employers">For Employers</a>
+        <a href="#about">About Us</a>
+      </nav>
+
+      <div class="nav-actions" id="navActions">
+        <a href="login.html" class="btn btn-outline">Log In</a>
+        <a href="register.html" class="btn btn-primary">Sign Up</a>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+
+        <div class="hero-label">
+          🇸🇬 Your Career Starts Here
+        </div>
+
+        <h1>
+          Find Your Next
+          <span>Career</span>
+          in Singapore
+        </h1>
+
+        <p>
+          Discover exciting job opportunities, connect with employers,
+          and take the next step in your professional journey with Kerjiva.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="jobs.html" class="btn btn-primary">Explore Jobs →</a>
+          <a href="register.html?role=company" class="btn btn-white">
+            I'm an Employer
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SEARCH -->
+  <section class="search-section">
+    <div class="container">
+      <form class="search-box" id="jobSearchForm">
+
+        <div class="search-field">
+          <label for="keyword">What job are you looking for?</label>
+          <input
+            type="text"
+            id="keyword"
+            placeholder="Job title, keyword or company"
+          >
+        </div>
+
+        <div class="search-field">
+          <label for="location">Where?</label>
+          <select id="location">
+            <option value="">All Singapore</option>
+            <option value="Central">Central</option>
+            <option value="East">East</option>
+            <option value="North">North</option>
+            <option value="North-East">North-East</option>
+            <option value="West">West</option>
+          </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary">
+          Search Jobs
+        </button>
+
+      </form>
+    </div>
+  </section>
+
+  <!-- CATEGORIES -->
+  <section class="section" id="categories">
+    <div class="container">
+
+      <div class="section-heading">
+        <div class="eyebrow">Career Opportunities</div>
+        <h2>Explore Job Categories</h2>
+        <p>
+          Find opportunities across different industries and discover
+          the career path that suits your goals.
+        </p>
+      </div>
+
+      <div class="categories">
+
+        <a href="jobs.html?category=IT" class="category-card">
+          <div class="category-icon">💻</div>
+          <h3>IT & Technology</h3>
+          <p>Technology and digital careers</p>
+        </a>
+
+        <a href="jobs.html?category=Finance" class="category-card">
+          <div class="category-icon">📊</div>
+          <h3>Business & Finance</h3>
+          <p>Business and financial services</p>
+        </a>
+
+        <a href="jobs.html?category=Healthcare" class="category-card">
+          <div class="category-icon">🏥</div>
+          <h3>Healthcare</h3>
+          <p>Healthcare and medical services</p>
+        </a>
+
+        <a href="jobs.html?category=Hospitality" class="category-card">
+          <div class="category-icon">🏨</div>
+          <h3>Hospitality</h3>
+          <p>Hotels, tourism and service</p>
+        </a>
+
+        <a href="jobs.html?category=Engineering" class="category-card">
+          <div class="category-icon">⚙️</div>
+          <h3>Engineering</h3>
+          <p>Engineering and technical roles</p>
+        </a>
+
+        <a href="jobs.html?category=Retail" class="category-card">
+          <div class="category-icon">🛍️</div>
+          <h3>Retail & Sales</h3>
+          <p>Retail and customer experience</p>
+        </a>
+
+        <a href="jobs.html?category=Design" class="category-card">
+          <div class="category-icon">🎨</div>
+          <h3>Design & Creative</h3>
+          <p>Creative and design opportunities</p>
+        </a>
+
+        <a href="jobs.html?category=Logistics" class="category-card">
+          <div class="category-icon">🚚</div>
+          <h3>Logistics</h3>
+          <p>Transport and supply chain</p>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY KERJIVA -->
+  <section class="section why-section" id="about">
+    <div class="container">
+
+      <div class="section-heading">
+        <div class="eyebrow">Why Kerjiva</div>
+        <h2>A Better Way to Find Opportunities</h2>
+        <p>
+          We aim to make the job search and recruitment experience
+          easier for job seekers and employers.
+        </p>
+      </div>
+
+      <div class="features">
+
+        <div class="feature-card">
+          <div class="feature-icon">🔎</div>
+          <h3>Discover Opportunities</h3>
+          <p>
+            Explore job opportunities from different industries
+            and find roles that match your experience.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">🤝</div>
+          <h3>Connect with Employers</h3>
+          <p>
+            Build professional connections and make it easier
+            to reach potential employers.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">🚀</div>
+          <h3>Grow Your Career</h3>
+          <p>
+            Take the next step in your career journey
+            with new opportunities and possibilities.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- EMPLOYERS -->
+  <section class="employer-section" id="employers">
+    <div class="container">
+
+      <div class="employer-banner">
+        <div>
+          <h2>Looking for the Right Talent?</h2>
+          <p>
+            Connect with potential candidates and share your job
+            opportunities with the Kerjiva community.
+          </p>
+        </div>
+
+        <a href="register.html?role=company" class="btn btn-primary">
+          Join as an Employer →
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+
+      <div class="footer-grid">
+
+        <div>
+          <div class="footer-brand">Kerjiva Singapore</div>
+          <p>
+            Connecting job seekers and employers.
+            Discover opportunities and build your career with Kerjiva.
+          </p>
+        </div>
+
+        <div>
+          <h3>Explore</h3>
+          <div class="footer-links">
+            <a href="jobs.html">Find Jobs</a>
+            <a href="register.html">Create Account</a>
+            <a href="register.html?role=company">For Employers</a>
+            <a href="#categories">Job Categories</a>
+          </div>
+        </div>
+
+        <div>
+          <h3>Information</h3>
+          <div class="footer-links">
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact Us</a>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="terms.html">Terms & Conditions</a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="copyright">
+        © 2026 Kerjiva Singapore. All rights reserved.
+      </div>
+
+    </div>
+  </footer>
+
+  <script>
+    // MOBILE NAVIGATION
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+    const navActions = document.getElementById("navActions");
+
+    menuToggle.addEventListener("click", function () {
+      navLinks.classList.toggle("active");
+      navActions.classList.toggle("active");
+    });
+
+    // JOB SEARCH
+    document.getElementById("jobSearchForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const keyword = document.getElementById("keyword").value.trim();
+      const location = document.getElementById("location").value;
+
+      const params = new URLSearchParams();
+
+      if (keyword) {
+        params.set("keyword", keyword);
+      }
+
+      if (location) {
+        params.set("location", location);
+      }
+
+      window.location.href = "jobs.html?" + params.toString();
+    });
+  </script>
+
+</body>
+</html>
+
